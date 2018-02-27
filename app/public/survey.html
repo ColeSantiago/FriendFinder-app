@@ -3,9 +3,10 @@
 <head>
 	<title>Friend Finder</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/stlye.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/stlye.css"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../data/friends.js"></script>
 </head>
 <body>
 	<div class="wrapper-survey">
@@ -18,105 +19,105 @@
 						<ul>
 							<li>
 								<label for="name">Name (Required)</label> <br>
-								<input type="text" name="name" placeholder="John Doe" required="required">
+								<input type="text" name="name" placeholder="John Doe" id="name">
 							</li>
 							<br> 
 							<li>
 								<label for="photo">Link To Photo Image (Required)</label> <br>
-								<input type="link" name="photo" placeholder="https://" required="required">
+								<input type="link" name="photo" placeholder="https://" id="photo">
 							</li>
 							<br> <br>
 						</ul>
 				</div>
 				<div class="survey-questions">
 							<label for="questions-1">Question One</label> <br>
-							<select name="options-1">
-								<option value="one">1 (Strongly Disagree)</option>
-								<option value="two">2</option>
-								<option value="three">3</option>
-								<option value="four">4</option>
-								<option value="five">5 (Strongly Agree)</option>
+							<select name="options-1" id="answer-1">
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
 							</select>
 							<br> <br>
 							<label for="questions-2">Question Two</label> <br>
-							<select name="options-2">
-								<option value="one">1 (Strongly Disagree)</option>
-								<option value="two">2</option>
-								<option value="three">3</option>
-								<option value="four">4</option>
-								<option value="five">5 (Strongly Agree)</option>
+							<select name="options-2" id="answer-2">
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
 							</select>
 							<br> <br>
 							<label for="questions-3">Question Three</label> <br>
-							<select name="options-3">
-								<option value="one">1 (Strongly Disagree)</option>
-								<option value="two">2</option>
-								<option value="three">3</option>
-								<option value="four">4</option>
-								<option value="five">5 (Strongly Agree)</option>
+							<select name="options-3" id="answer-3">
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
 							</select>
 							<br> <br>
 							<label for="questions-4">Question Four</label> <br>
-							<select name="options-4">
-								<option value="one">1 (Strongly Disagree)</option>
-								<option value="two">2</option>
-								<option value="three">3</option>
-								<option value="four">4</option>
-								<option value="five">5 (Strongly Agree)</option>
+							<select name="options-4" id="answer-4">
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
 							</select>
 							<br> <br>
 							<label for="questions-5">Question Five</label> <br>
-							<select name="options-5">
-								<option value="one">1 (Strongly Disagree)</option>
-								<option value="two">2</option>
-								<option value="three">3</option>
-								<option value="four">4</option>
-								<option value="five">5 (Strongly Agree)</option>
+							<select name="options-5" id="answer-5">
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
 							</select>
 							<br> <br>
 							<label for="questions-6">Question Six</label> <br>
-							<select name="options-6">
-								<option value="one">1 (Strongly Disagree)</option>
-								<option value="two">2</option>
-								<option value="three">3</option>
-								<option value="four">4</option>
-								<option value="five">5 (Strongly Agree)</option>
+							<select name="options-6" id="answer-6">
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
 							</select>
 							<br> <br>
 							<label for="questions-7">Question Seven</label> <br>
-							<select name="options-7">
-								<option value="one">1 (Strongly Disagree)</option>
-								<option value="two">2</option>
-								<option value="three">3</option>
-								<option value="four">4</option>
-								<option value="five">5 (Strongly Agree)</option>
+							<select name="options-7" id="answer-7">
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
 							</select>
 							<br> <br>
 							<label for="questions-8">Question Eight</label> <br>
-							<select name="options-8">
-								<option value="one">1 (Strongly Disagree)</option>
-								<option value="two">2</option>
-								<option value="three">3</option>
-								<option value="four">4</option>
-								<option value="five">5 (Strongly Agree)</option>
+							<select name="options-8" id="answer-8">
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
 							</select>
 							<br> <br>
 							<label for="questions-9">Question Nine</label> <br>
-							<select name="options-9">
-								<option value="one">1 (Strongly Disagree)</option>
-								<option value="two">2</option>
-								<option value="three">3</option>
-								<option value="four">4</option>
-								<option value="five">5 (Strongly Agree)</option>
+							<select name="options-9" id="answer-9">
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
 							</select>
 							<br> <br>
 							<label for="questions-10">Question Ten</label> <br>
-							<select name="options-10">
-								<option value="one">1 (Strongly Disagree)</option>
-								<option value="two">2</option>
-								<option value="three">3</option>
-								<option value="four">4</option>
-								<option value="five">5 (Strongly Agree)</option>
+							<select name="options-10" id="answer-10">
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
 							</select>
 							<br> <br>
 							<button type="submit" class="submit-btn">Submit</button>
