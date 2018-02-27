@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Friend Finder</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
 	<!-- <link rel="stylesheet" type="text/css" href="css/stlye.css"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -147,23 +147,28 @@
 
 			let userScoreInts = newFriend.scores.map(Number);
 			
-
 			$.get('/friends')
 			.then(function(data) {
 				for (let i = 0; i < data.length; i++) {
 					let allInts = data[i].scores.map(Number);
-					evaluateScore(userScoreInts, allInts);
-				}
-			})
+					evaluateScore(userScoreInts, allInts, data[i].name, data[i].photo);
+				};
+			});
 		});
 
-		evaluateScore = (userScoreInts, allInts) => {
+		evaluateScore = (userScoreInts, allInts, name, photo) => {
 			let arrayDifferences = [];
 			for (let i = 0; i < allInts.length - 1; i++) {
-				let totals = userScoreInts[i] - allInts[i];
+				let totals = Math.abs(userScoreInts[i] - allInts[i]);
 				arrayDifferences.push(totals);
 			};
-			console.log(arrayDifferences); 
+			let finalSum = arrayDifferences.reduce(function(a, b) { return a + b; }, 0);
+			showMatch(finalSum, name, photo);
+		};
+
+		showMatch = (finalSum, name, photo) => {
+			if (finalSum)
+			// console.log(`Name: ${name} Photo: ${photo} Final Score: ${finalSum}`);
 		};
 	</script>
 
