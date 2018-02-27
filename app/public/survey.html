@@ -132,6 +132,7 @@
 
 	<script type="text/javascript">
 		$('.submit-btn').on('click', function(event) {
+			jQuery.ajaxSettings.traditional = true;
 			event.preventDefault();
 			let newFriend = {
 				name: $('#name').val().trim(),
@@ -141,9 +142,29 @@
 
 			$.post('/api/new', newFriend)
 			.then(function(data) {
-				console.log(data);
+				console.log('Saving new Friend...');
 			});
+
+			let userScoreInts = newFriend.scores.map(Number);
+			
+
+			$.get('/friends')
+			.then(function(data) {
+				for (let i = 0; i < data.length; i++) {
+					let allInts = data[i].scores.map(Number);
+					evaluateScore(userScoreInts, allInts);
+				}
+			})
 		});
+
+		evaluateScore = (userScoreInts, allInts) => {
+			let arrayDifferences = [];
+			for (let i = 0; i < allInts.length - 1; i++) {
+				let totals = userScoreInts[i] - allInts[i];
+				arrayDifferences.push(totals);
+			};
+			console.log(arrayDifferences); 
+		};
 	</script>
 
 </body>
