@@ -54,7 +54,16 @@ $(document).ready(function() {
             };
         });
 
-        console.log(answers);
+        let newFriend = {
+        	'name': userName,
+        	'photo': userPhoto,
+        	'answers': answers
+        };
+
+        $.post('/api/new', newFriend, function(data) {
+        	console.log(data);
+        	console.log('Adding new friend...');
+        });
 	});
 
 
