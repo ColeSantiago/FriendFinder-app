@@ -9,6 +9,9 @@ const friends = [];
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(express.static(__dirname + '/app/public'));
 
 app.get('/', function(request, response) {
 	response.sendFile(path.join(__dirname, 'app/public/home.html'));
@@ -20,7 +23,7 @@ app.get('/survey', function(request, response) {
 
 app.get('/friends', function(request, response) {
 	response.json(friends);
-})
+});
 
 app.post('/api/new', function(request, response) {
 	const newfriend = request.body;
