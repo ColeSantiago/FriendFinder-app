@@ -22,13 +22,15 @@ $(document).ready(function() {
 
 	let questionDiv = $('.Questions');
 	let j = 1;
+	let i = 0
 
-	for (let i = 0; i < questions.length; i++) {
+	for (i; i < questions.length; i++) {
 		let eachQuestion = $('<div>');
 		eachQuestion.addClass('question-div');
 		let heading = $('<h4>').text('Question ' + j++);
 		let questionText = $('<p>').text(questions[i]);
 		let select = $('<select>');
+		select.addClass('user-choices');
         for (let i = 0; i < choices.length; i++){
             let option = $('<option>').text(choices[i]);
             select.append(option);
@@ -43,8 +45,16 @@ $(document).ready(function() {
 		event.preventDefault();
 		let userName = $('#name').val();
 		let userPhoto = $('#photo').val();
+		let userChoice = $('.user-choices');
+		let answers = [];
 
-		
+		Object.keys(userChoice).forEach(function(choice) {
+            if (answers.length < questions.length) {
+            answers.push(userChoice[choice].value.charAt(0));
+            };
+        });
+
+        console.log(answers);
 	});
 
 
