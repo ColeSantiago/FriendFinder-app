@@ -31,6 +31,7 @@ $(document).ready(function() {
 		let questionText = $('<p>').text(questions[i]);
 		let select = $('<select>');
 		select.addClass('user-choices');
+		
         for (let i = 0; i < choices.length; i++){
             let option = $('<option>').text(choices[i]);
             select.append(option);
@@ -42,6 +43,7 @@ $(document).ready(function() {
 	};
 
 	$('.submit').on('click', function() {
+		jQuery.ajaxSettings.traditional = true;
 		event.preventDefault();
 		let userName = $('#name').val();
 		let userPhoto = $('#photo').val();
@@ -60,17 +62,10 @@ $(document).ready(function() {
         	'answers': answers
         };
 
-        $.post('/api/new', newFriend, function(data) {
+        $.post('/api/friends', newFriend, function(data) {
         	console.log(data);
         	console.log('Adding new friend...');
         });
 	});
-
-
-
-
-
-
-
 // document.ready closing tag
 });
