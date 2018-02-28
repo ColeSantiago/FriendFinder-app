@@ -43,6 +43,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		let userName = $('#name').val();
 		let userPhoto = $('#photo').val();
+
 		
 	});
 

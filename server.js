@@ -13,14 +13,6 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(__dirname + '/app/public'));
 
-app.get('/', function(request, response) {
-	response.sendFile(path.join(__dirname, 'app/public/home.html'));
-});
-
-app.get('/survey', function(request, response) {
-	response.sendFile(path.join(__dirname, 'app/public/survey.html'));
-});
-
 app.get('/friends', function(request, response) {
 	response.json(friends);
 });
@@ -31,6 +23,8 @@ app.post('/api/new', function(request, response) {
 	friends.push(newfriend);
 	response.json(newfriend);
 });
+
+require('./app/routing/htmlRoutes.js')(app);
 
 app.listen(PORT, function() {
 	console.log('App listening on PORT ' + PORT);
