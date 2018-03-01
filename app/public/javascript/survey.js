@@ -46,11 +46,12 @@ $(document).ready(function() {
 		event.preventDefault();
 		let userName = $('#name').val();
 		let userPhoto = $('#photo').val();
-		if (userName.length === 0 || userPhoto.length === 0) {
-			alert('Please fill out your name and choose a photo');
+		if (userName.length === 0 || userPhoto.length === 0 || userPhoto.indexOf('http://') !== 0) {
+			alert('Please fill out your name and give a valid photo link (No "s" in "https://)"');
 		} else {
 			let userChoice = $('.user-choices');
 			let answers = [];
+			console.log(userPhoto);
 
 			Object.keys(userChoice).forEach(function(choice) {
 	            if (answers.length < questions.length) {
@@ -71,6 +72,8 @@ $(document).ready(function() {
 					let modalImage = $('.modal-image');
 					let friendImg = new Image();
 					friendImg.src = data.photo;
+					friendImg.style.height = '300px';
+					friendImg.style.width = 'auto';
 					console.log(friendImg);
 					let span = $(".close")[0];
 					modal.css('display', 'block');
