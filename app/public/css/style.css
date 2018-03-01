@@ -27,7 +27,7 @@ body {
     ". a a .";	
 }
 
-.container {
+.container-home {
 	grid-area: a;
 	background: url('images/ignasi.png');
 	padding: 35px;
@@ -45,7 +45,7 @@ h2 {
 	padding: 5px;
 }
 
-.go-to-survey {
+button {
 	font-family: 'Cabin Condensed', sans-serif;
 	background: url('images/stardust.png');
 	padding: 10px;
@@ -56,7 +56,7 @@ h2 {
 
 }
 
-.go-to-survey:hover {
+button:hover {
 	cursor: pointer;
 	color: black;
 	background: url('images/ignasi.png');
@@ -73,7 +73,65 @@ a:hover {
 	text-decoration: underline;	
 }
 
+/*survey page*/
 
+.wrapper-survey {
+	display: grid;
+	text-align: center; 
+	grid-template-areas: 
+    ". a a ."
+    ". a a ."
+    "b b b b";	
+}
 
+.container-survey {
+	grid-area: a;
+	background: url('images/ignasi.png');
+	padding: 35px;
+	margin: 50px;
+}
 
+footer,
+.push {
+  height: 75px;
+}
 
+footer {
+  grid-area: b;
+  padding: 20px 0;
+  font-size: 20px;
+  color: #ccc8c8;
+  text-align: center;
+  background: #232323;
+  border-top: 2px solid black;
+}
+
+.link {
+	color: #ccc8c8;
+}
+
+h3 {
+	font-size: 40px;
+	margin: 5px; 
+}
+
+input {
+ 	padding: 6px;
+    margin: 6px;
+}
+
+h4 {
+	text-decoration: underline;
+	font-size: 25px;
+	margin-top: 30px;
+	font-weight: bold;
+}
+
+.user-choices {
+	font-size: 16px;
+	font-family: 'Cabin Condensed', sans-serif;
+}
+
+p {
+	font-size: 20px;
+}

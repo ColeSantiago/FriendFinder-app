@@ -38,8 +38,7 @@ $(document).ready(function() {
          };
         select.attr('id', 'select' + i);
         eachQuestion.append(heading, questionText, select);
-        let br = $('<br>');
-        questionDiv.append(eachQuestion, br)
+        questionDiv.append(eachQuestion)
 	};
 
 	$('.submit').on('click', function() {
