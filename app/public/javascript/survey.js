@@ -65,8 +65,27 @@ $(document).ready(function() {
 	        };
 
 	        $.post('/api/friends', newFriend, function(data) {
-	        	alert(`Your new friend: ${data.name} ${data.photo}`);
-	        });
+	        	if (data) {
+					let modal = $('#myModal');
+					let modalContent = $('.modal');
+					let modalImage = $('.modal-image');
+					let friendImg = new Image();
+					friendImg.src = data.photo;
+					console.log(friendImg);
+					let span = $(".close")[0];
+					modal.css('display', 'block');
+					modalContent.html(data.name);
+					modalImage.html(friendImg);
+					span.onclick = function() {
+					    modal.css('display', 'none');
+					}
+					window.onclick = function(event) {
+					    if (event.target !== modal) {
+					        modal.css('display', 'none');
+					    }
+					}
+				}
+			});
 
 	        $('#name').val('');
 	        $('#photo').val('');
