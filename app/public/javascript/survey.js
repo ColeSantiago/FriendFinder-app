@@ -31,7 +31,7 @@ $(document).ready(function() {
 		let questionText = $('<p>').text(questions[i]);
 		let select = $('<select>');
 		select.addClass('user-choices');
-		
+
         for (let i = 0; i < choices.length; i++){
             let option = $('<option>').text(choices[i]);
             select.append(option);
@@ -47,25 +47,32 @@ $(document).ready(function() {
 		event.preventDefault();
 		let userName = $('#name').val();
 		let userPhoto = $('#photo').val();
-		let userChoice = $('.user-choices');
-		let answers = [];
+		if (userName.length === 0 || userPhoto.length === 0) {
+			alert('Please fill out your name and choose a photo');
+		} else {
+			let userChoice = $('.user-choices');
+			let answers = [];
 
-		Object.keys(userChoice).forEach(function(choice) {
-            if (answers.length < questions.length) {
-            answers.push(userChoice[choice].value.charAt(0));
-            };
-        });
+			Object.keys(userChoice).forEach(function(choice) {
+	            if (answers.length < questions.length) {
+	            answers.push(userChoice[choice].value.charAt(0));
+	            };
+	        });
 
-        let newFriend = {
-        	'name': userName,
-        	'photo': userPhoto,
-        	'answers': answers
-        };
+	        let newFriend = {
+	        	'name': userName,
+	        	'photo': userPhoto,
+	        	'answers': answers
+	        };
 
-        $.post('/api/friends', newFriend, function(data) {
-        	console.log(data);
-        	console.log('Adding new friend...');
-        });
+	        $.post('/api/friends', newFriend, function(data) {
+	        	alert(`Your new friend: ${data.name} ${data.photo}`);
+	        });
+
+	        $('#name').val('');
+	        $('#photo').val('');
+			$('select').prop('selectedIndex', null);	
+		}
 	});
 // document.ready closing tag
 });

@@ -16,20 +16,15 @@
 			<div class="survey">
 				<div class="survey-about">
 					<form method="POST">
-						<ul>
-							<li>
-								<label for="name">Name (Required)</label> <br>
-								<input type="text" name="name" placeholder="John Doe" id="name">
-							</li>
-							<br> 
-							<li>
-								<label for="photo">Link To Photo Image (Required)</label> <br>
-								<input type="link" name="photo" placeholder="https://" id="photo">
-							</li>
-						</ul>
+						<label for="name">Name (Required)</label> <br>
+						<input type="text" name="name" placeholder="John Doe" id="name">
+						<br> <br>
+						<label for="photo">Link To Photo Image (Required)</label> <br>
+						<input type="link" name="photo" placeholder="https://" id="photo">
+						<br> <br>	
+						<div class="Questions"></div>
+							<button type="submit" class="submit">Submit</button>
 					</form>
-					<div class="Questions"></div>
-					<button type="submit" class="submit">Submit</button>
 					<br> <br>
 				</div>
 			</div>
@@ -38,74 +33,5 @@
 			<a href="/friends" target="_blank">API Friends List</a> |
 			<a href="https://github.com/ColeSantiago/FriendFinder-app" target="_blank">GitHub Repo</a>
 		</div>
-	</div>
-
-	<script type="text/javascript">
-		// $('.submit-btn').on('click', function(event) {
-		// 	jQuery.ajaxSettings.traditional = true;
-		// 	event.preventDefault();
-		// 	let newFriend = {
-		// 		name: $('#name').val().trim(),
-		// 		photo: $('#photo').val().trim(),
-		// 		scores: [$('#answer-1').val(), $('#answer-2').val(), $('#answer-3').val(), $('#answer-4').val(), $('#answer-5').val(), $('#answer-6').val(), $('#answer-7').val(), $('#answer-8').val(), $('#answer-9').val(), $('#answer-10').val()]
-		// 	};
-
-		// 	$.post('/api/new', newFriend)
-		// 	.then(function(data) {
-		// 		console.log('Saving new Friend...');
-		// 	});
-			// changing the users answers to intergers
-			// let userScoreInts = newFriend.scores.map(Number);
-			
-			// changings all of the other users in the api answers to intergers
-		// 	$.get('/friends', function(data) {
-		// 		let allScores = [];
-		// 		let allNames = [];
-		// 		let allPhotos = [];
-		// 		let allUserScores = [];
-		// 		for (let i = 0; i < data.length - 1; i++) {
-		// 			let scores = data[i].scores.map(Number);
-		// 			let names = data[i].name;
-		// 			let photos = data[i].photo;
-		// 			let userScoreInts = newFriend.scores.map(Number);
-		// 			allUserScores.push(userScoreInts);
-		// 			allScores.push(scores);
-		// 			allNames.push(names);
-		// 			allPhotos.push(photos);
-		// 		};
-		// 		evaluateScore(allUserScores, allScores, allNames, allPhotos);
-		// 	});
-		// });
-
-		// evaluateScore = (allUserScores, allScores, allNames, allPhotos) => {
-			// subtracting each number in the users array with each number in all of the other user's arrays, and pushing the answers to an array.
-			// let arrayDifferences = [];
-			// 	console.log(allUserScores);
-			// 	console.log(allScores);
-
-			// for (let i = 0; i < allScores.length; i++) {
-			// 		let totals = [Math.abs(allUserScores[i][i] - allScores[i][i])];
-			// 		console.log(totals);
-			// 		arrayDifferences.push(totals);
-			// };
-
-			// console.log(arrayDifferences);
-			// adding up all of the numbers in each array
-
-			// let finalSums = [];
-			// for (let i = 0; i < arrayDifferences.length; i++) {
-			// 	let totals = arrayDifferences.reduce(function(a, b) { return a + b; }, 0);
-			// 	finalSums.push(totals);
-			// }
-			// console.log(finalSums);
-			
-			// showMatch(final, allNames, allPhotos);
-		// };
-
-		// showMatch = (final, allNames, allPhotos) => {
-		// 	console.log(`Name: ${allNames} Photo: ${allPhotos} Final Score: ${final}`);
-		// };
-	</script>
-
 </body>
 </html>
