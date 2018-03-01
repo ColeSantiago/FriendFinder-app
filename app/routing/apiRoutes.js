@@ -8,22 +8,20 @@ const apiPaths = function(app) {
 
 	app.post('/api/friends', function(request, response) {
 		const newFriend = request.body;
-		friends.push(newFriend);
-		response.json(newFriend);
-
+		const newFriendAnswers = request.body.answers;
 		let finalScores = [];
 
-		for (let i = 0; i < friends.length; i++) {
-           	let differences = 0;
-            for (let i = 0; i < newFriend.answers.length; i++) {
-                let potentialFriends = friends[i].answers;
-                let user = newFriend.answers[i];
-                let differences = +potentialFriends - +user;
-                
-            }
-            finalScores.push(differences);
-        };
-        console.log(finalScores);
+			for (let i = 0; i < friends.length; i++) {
+                let differences = 0;
+                for (let j = 0; j < newFriendAnswers.length; j++) {
+                    differences += (Math.abs(parseInt(friends[i].answers[j]) - parseInt(newFriendAnswers[j])));
+                }
+                finalScores.push(differences);
+            };
+
+            console.log(finalScores);
+            friends.push(newFriend);
+			response.json(newFriend);
 	});
 };
 
