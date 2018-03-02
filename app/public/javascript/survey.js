@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	// array of questions
 	let questions = [
 		'I like cats.',
 		'Batman & Robin is my favorite Batman movie.',
@@ -12,6 +13,7 @@ $(document).ready(function() {
 		'Pixar wins too many Oscars.'
 	];
 
+	// array of choices
 	let choices = [
 		'1 (Strongly Disagree)',
 		'2',
@@ -20,6 +22,7 @@ $(document).ready(function() {
 		'5 (Strongly Agree)'
 	];
 
+	// adding all of the questions to the html
 	let questionDiv = $('.Questions');
 	let j = 1;
 	let i = 0
@@ -32,6 +35,7 @@ $(document).ready(function() {
 		let select = $('<select>');
 		select.addClass('user-choices');
 
+		// adding all of the choices onto the html
         for (let i = 0; i < choices.length; i++){
             let option = $('<option>').text(choices[i]);
             select.append(option);
@@ -41,30 +45,36 @@ $(document).ready(function() {
         questionDiv.append(eachQuestion)
 	};
 
+	// the on click event that will handle the user input
 	$('.submit').on('click', function() {
 		jQuery.ajaxSettings.traditional = true;
 		event.preventDefault();
+		// grab the name and photo
 		let userName = $('#name').val();
 		let userPhoto = $('#photo').val();
+		// if there is a valid name and photo continue, else alert to fill it out properly
 		if (userName.length === 0 || userPhoto.length === 0 || userPhoto.indexOf('http://') !== 0) {
 			alert('Please fill out your name and give a valid photo link (No "s" in "https://)"');
 		} else {
+			// grabbing the users answers
 			let userChoice = $('.user-choices');
 			let answers = [];
-			console.log(userPhoto);
-
+			// This uses object.keys so you can use a for each callback function on the users answers
 			Object.keys(userChoice).forEach(function(choice) {
 	            if (answers.length < questions.length) {
+	            // for each answer object, grab the first thing, which will be the number, and push it into the answers array
 	            answers.push(userChoice[choice].value.charAt(0));
 	            };
 	        });
 
+			// creating a new object will all of the user's answers
 	        let newFriend = {
 	        	'name': userName,
 	        	'photo': userPhoto,
 	        	'answers': answers
 	        };
 
+	        // post that sends the new object out in a modal form
 	        $.post('/api/friends', newFriend, function(data) {
 	        	if (data) {
 					let modal = $('#myModal');
@@ -90,6 +100,7 @@ $(document).ready(function() {
 				}
 			});
 
+	        // empties out all of the user's answers so that the survey is ready for the next user
 	        $('#name').val('');
 	        $('#photo').val('');
 			$('select').prop('selectedIndex', null);	
