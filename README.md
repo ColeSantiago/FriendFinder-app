@@ -10,5 +10,4 @@ This app is a compatibility based "FriendFinder" application, similar to a datin
 
   * This app was built with html, css, javascript, jQuery, node, express, and other npm packages: path, and body-parser.
 
-It can be run on a node server, or found at:
-https://friendfinder-colesantiago.herokuapp.com/
+It can be run on a node server, or found [here](https://friendfinder-colesantiago.herokuapp.com/).
